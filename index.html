@@ -62,7 +62,7 @@
     <h2>Arcade</h2>
     <div class="swatches" aria-hidden="true" id="sw"></div>
     <p>Twenty-four keyboard-friendly browser games: arcade classics with a twist, quizzes, brain teasers, daily puzzles, and a few games for practicing IT basics.</p>
-    <p class="hint">Press <kbd>Enter</kbd> to play.</p>
+    <p class="hint" id="hint">Press <kbd>Enter</kbd> to play.</p>
   </a>
 
   <footer>© <span id="y">2026</span> Kalvetua</footer>
@@ -74,6 +74,7 @@
    '#ff9bd2', '#a0e75a', '#ffe066', '#4be38a', '#7ee0ff', '#f78c6c', '#82aaff', '#c792ea', '#89ddff', '#c3e88d', '#ffcb6b', '#f07178']
     .forEach(c => { const s = document.createElement('span'); s.style.setProperty('--c', c); document.getElementById('sw').append(s); });
   document.getElementById('y').textContent = new Date().getFullYear();
+  if (matchMedia('(hover: none) and (pointer: coarse)').matches) document.getElementById('hint').textContent = 'Tap to play.';
   // Keyboard-first: the Arcade link has focus from the start, so Enter opens it.
   document.getElementById('arcade').focus({ preventScroll: true });
 </script>
